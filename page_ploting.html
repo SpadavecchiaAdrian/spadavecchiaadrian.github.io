@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Plotting Data</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Portfolio</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Portfolio</a></li>
+							<li class="active"><a href="page_ploting.html">Applied Plotting</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/adrianspadavecchia/?locale=en_US" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/SpadavecchiaAdrian" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Applied<br />
+									Plotting</h1>
+									<p>This is a showcase of my skills plotting with matplotlib.</p>
+								</header>
+								<div class="image main"><img src="images/plot.jpg" alt="" /></div>
+
+								<p>These examples are part of the assignments I did in the
+									 "Applied Plotting, Charting & Data Representation in Python" course by University of Michigan on Coursera.
+									 <a href="https://www.coursera.org/account/accomplishments/verify/76YFEU7VPJ95">Link to the certificate</a>.</p>
+								<p>The first plot shows how temperatures have varied near Ann Arbor
+									(Michigan - United States) in 2015 vs 2005-2014. An average of
+									the values ​​between 2005 and 2014 is represented by the shaded
+									area between the red and blue lines (maximum and minimum)
+									the points represent temperatures of the year 2015 that
+									exceed the average of the years 2005-2014.</p>
+
+								<img src="images/AppliedPloting/index.png" alt="" />
+
+								<ul class="actions">
+									<li><a href="http://htmlpreview.github.com/?https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/AppliedPloting/Plot%20Change%20of%20Climatological%20Temperature.html" class="button primary icon solid fa-search">See Notebook of the first plot in GitHub</a></li>
+									<li><a href="https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/AppliedPloting/Plot%20Change%20of%20Climatological%20Temperature.ipynb" class="button primary fit">.ipynb file</a></li>
+								</ul>
+								<p>This second plot applies some of the concepts explained in the paper
+								<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Ferreira_Fisher_Sample_Oriented_Tasks.pdf">
+									"Ferreira, N., Fisher, D., & Konig, A. C. (2014, April). [Sample-oriented
+								task-driven visualizations: allowing users to make better, more confident decisions.]</a>
+								In Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (pp. 571-580).
+								<a href="https://www.youtube.com/watch?v=BI7GAs-va-Q">(Video)</a><br />
+								In this paper the authors describe the challenges users face when trying to
+								make judgements about probabilistic data generated through samples. As an example,
+								they look at a bar chart of four years of data (replicated below in Figure 1).
+								Each year has a y-axis value, which is derived from a sample of a larger dataset.
+								For instance, the first value might be the number votes in a given district or riding for 1992,
+								with the average being around 33,000. On top of this is plotted the 95% confidence interval
+								for the mean.<br />
+								The result is an interactive plot, don't miss seeing the code!
+								</p>
+
+								<img src="images/AppliedPloting/assignment 3.png" alt="" />
+
+								<ul class="actions">
+									<li><a href="http://htmlpreview.github.com/?https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/AppliedPloting/Interactive%20Plotting.html" class="button primary icon solid fa-search">See Notebook code of the second plot in GitHub</a></li>
+									<li><a href="https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/AppliedPloting/Interactive%20Plotting.ipynb" class="button primary fit">.ipynb file</a></li>
+								</ul>
+								<p>In this example, it is intended to show how a simple data can
+									 be plotted using the principles of Cairo, improving various aspects of the plot.
+								<a href="https://www.coursera.org/lecture/python-plotting/the-truthful-art-alberto-cairo-GqvPs">
+									See the lecture "The Truthful Art (alberto Cairo)"</a>.<br />
+
+									This visualization was concerned with answering the question
+									of How the number of followers of the main branches of religion
+									varied in relation to the population in the last 30 years.
+									'thearda.com' was scraped for data concerning the region Ann Arbor
+									and the last 30 years of data. Any new tradition of news religion
+									bodies was dropped from the analysis in order to provide a more level
+									comparison between the traditions. A ratio between the sum of the
+									Adherents grouped by the traditions and the population was plotted
+									to help the reader identify any major trends in the adherents ratio.<br />
+
+									The plot indicates that, in general, all religions have a decrease
+									in relation to the size of the population. Except for 'other' where
+									the new religions are classified showing an increased rate. More
+									 information should be taken into account to draw conclusions,
+									 since Ann Arbor is a university city, with 33% of its employment
+									 in education services.</p>
+
+								<img src="images/AppliedPloting/assignment 4.png" alt="" />
+								<p>
+									<h3>Cairo's principles</h3>
+									<h4>Truthfulness:</h4>
+
+									Because the population grows, it is logical that adherents of
+									religions grow. But, in reality, they do not grow at the same
+									speed as the population, this is why the ratio is shown.<br />
+
+									<h4>Beauty:</h4>
+									The plot was created thinking about simplicity, small details
+									like removing the frame of the labels and the type of line '-o' were taken into account.<br />
+
+									<h4>Functionality:</h4>
+									To give it more functionality the color style 'seaborn-colorblind' was used.<br />
+
+									<h4>Insightfulness:</h4>
+									I think that seeing the different religious traditions plotted
+									 in ratios with respect to the population gives us that feeling
+									 of eureka, seeing that in general religions lose adherents in
+									 relation to the size of the population, and as new religions
+									 'other' begin to grow to generate pluralism religious and cultural.<br />
+								</p>
+								<ul class="actions">
+									<li><a href="http://htmlpreview.github.com/?https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/AppliedPloting/Simple%20Data.html" class="button primary icon solid fa-search">See Notebook code of the third plot in GitHub</a></li>
+									<li><a href="https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/AppliedPloting/Simple%20Data.ipynb" class="button primary fit">.ipynb file</a></li>
+								</ul>
+							</section>
+
+					</div>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<section class="split contact">
+								<section class="alt">
+									<h3>Do you like what i do? Contact me.</h3>
+
+								</section>
+								<section class="alt">
+									<h3>Adress</h3>
+									<p>Cayetano Silva 2361 <br />
+									Argentina, Mendoza</p>
+								</section>
+								<section>
+									<h3>Phone</h3>
+									<p>+54 9 2616 976702</p>
+								</section>
+								<section>
+									<h3>Email</h3>
+									<p>spadavecchia.adrian@gmail.com</p>
+								</section>
+							<section class="split contact">
+								<section>
+									<h3>Social</h3>
+									<ul class="icons alt">
+										<li><a href="https://www.linkedin.com/in/adrianspadavecchia/?locale=en_US" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/SpadavecchiaAdrian" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</section>
+							</section>
+						</footer>
+
+					<!-- Copyright -->
+						<div id="copyright">
+							<ul><li>&copy; Spadavecchia Adrián</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
