@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Machine Learning</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Portfolio</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Portfolio</a></li>
+							<li class="active"><a href="page_ploting.html">Machine Learning</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/adrianspadavecchia/?locale=en_US" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/SpadavecchiaAdrian" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Machine <br />
+									PLearning</h1>
+									<p>This is a showcase of my skills in Machine Learning.</p>
+								</header>
+								<div class="image main"><img src="images/machinePiano.jpg" alt="" /></div>
+								<div class="row">
+								<p>On this page I will show a review of the knowledge that I have
+									acquired by doing the following three courses on Machine Learning.<br /><br />
+
+									"Introduction to Data Science in Python by University of Michigan on Coursera."
+									<a href="https://www.coursera.org/account/accomplishments/certificate/NK2673HVP84J">Link to the certificate</a><br /><br />
+
+									"Applied Machine Learning in Python by University of Michigan on Coursera."
+									<a href="https://www.coursera.org/account/accomplishments/certificate/ZQJ98MEPUERK">Link to the certificate</a><br /><br />
+
+									"Machine Learning by Stanford University on Coursera."
+									<a href="https://www.coursera.org/account/accomplishments/certificate/KL6PT7YEAEP5">Link to the certificate</a><br /><br />
+									</p>
+								</div>
+
+									<h3>Underfitting and overfitting</h3>
+									<div class="row">
+										<p><span class="image left"><img src="images/MachineLearning/underfittingOverfitting.png" alt="" /></span>
+											The linear regression scope can be extended if we use Polynomial
+											Features, this allows us to find more complex patterns that a simple
+											regression cannot capture. This widely used technique can
+											lead to overfitting problems very easily.  As we can see in the
+											plot to the left, a polynomial of degree nine connects all the
+											blue dots (training data) but fails in the orange ones (test data).</p>
+									</div>
+									<div class="row">
+									<p><span class="image right"><img src="images/MachineLearning/OverfittingR2Score.png" alt="" /></span>
+										One of the methods used to determine which degree of polynomial
+										 is a good generalization is plot R2 score vs Polynomial Feature.<br />
+										 The problem of overfitting is present in every model, which is why models
+										 with regulation are developed. Regularization helps prevent overfitting
+										 but too much regularization and we will get the opposite effect, a very
+										 simple model that is not able to find the patterns in our data set.
+									 </p>
+								 </div>
+								 <div class="row">
+									 <p><span class="image left"><img src="images/MachineLearning/validationcurve.png" alt="" /></span>
+										 Fortunately, sklearn provides a wide spectrum of possibilities
+										 to choose which parameters give the best results. In the plot we see the
+										 result of using validation_curve () on gamma in a Support Vector Classification model.
+										</p>
+									</div>
+										<ul class="actions">
+											<li><a href="http://htmlpreview.github.io/?https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/MachineLearning/Regression%20and%20Classification.html" class="button primary icon solid fa-search">See Notebook code in GitHub</a></li>
+											<li><a href="https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/MachineLearning/Regression%20and%20Classification.ipynb" class="button primary fit">.ipynb file</a></li>
+										</ul>
+									<h3>Evaluate Models</h3>
+									<p>As always, it is recommended to build a simple model that
+									 will serve as a reference for our iterations. What about
+									 the dataset whose distribution is very asymmetric. Well,
+									 in these cases we use a Dummy model that predicts the value
+									  with greater presence in the data set.</p>
+									<div class="row">
+ 									 <p><span class="image left"><img src="images/MachineLearning/PrecRecall.png" alt="" /></span>
+										 In classifier models, typically the methods for evaluating
+										 models include Confusion Matrix, Precision-Recall curve and
+										 ROC curve among others. Precision-Recall is a useful measure
+										 of success of prediction when the classes are very imbalanced.
+										 In information retrieval, precision is a measure of result
+										 relevancy, while recall is a measure of how many truly relevant results are returned.
+ 										</p>
+ 								</div>
+								<div class="row">
+								 <p><span class="image right"><img src="images/MachineLearning/ROC.png" alt="" /></span>
+									  When we need to check or visualize the performance of the
+										multi-class classification problem, we use the AUC (Area under the curve)
+										ROC (Receiver operating characteristics) curve. It indicates how much
+										model is able to distinguish between classes. The higher the AUC, the
+										better the model for predicting 0s as 0s and 1s as 1s. By analogy, the
+										higher the AUC, the better the model to distinguish between fraudulent
+										credit card transactions and non-fraud.
+									</p>
+								</div>
+								<ul class="actions">
+									<li><a href="http://htmlpreview.github.com/?https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/MachineLearning/Evaluate%20Models.html" class="button primary icon solid fa-search">See Notebook code in GitHub</a></li>
+									<li><a href="https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/MachineLearning/Evaluate%20Models.ipynb" class="button primary fit">.ipynb file</a></li>
+								</ul>
+								<h3>Maintenance Fines in Detroit with GradientBoostingClassifier</h3>
+								<div class="row">
+								<p><span class="image left"><img src="images/MachineLearning/FeaturesImportance.png" alt="" /></span>
+									One of the most pressing problems facing Detroit - blight.
+									Blight violations are issued by the city to individuals who
+									allow their properties to remain in a deteriorated condition.
+									Every year, the city of Detroit issues millions of dollars in
+									fines to residents and every year, many of these fines remain unpaid.
+									Enforcing unpaid blight fines is a costly and tedious process,
+									so the city wants to know: how can we increase blight ticket compliance?
+									In this example i choose GradientBoostingClassifier, fit it and then i get the
+									top 5 of features importance, where the city must pay attention to avoid unpaid fines
+								 </p>
+							 </div>
+								<ul class="actions">
+									<li><a href="http://htmlpreview.github.com/?https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/MachineLearning/Maintenance%20Fines%20in%20Detroit%20with%20GradientBoostingClassifier.html" class="button primary icon solid fa-search">See Notebook code in GitHub</a></li>
+									<li><a href="https://github.com/SpadavecchiaAdrian/Portfolio/blob/master/MachineLearning/Maintenance%20Fines%20in%20Detroit%20with%20GradientBoostingClassifier.ipynb" class="button primary fit">.ipynb file</a></li>
+								</ul>
+							</section>
+
+					</div>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<section class="split contact">
+								<section class="alt">
+									<h3>Do you like what i do? Contact me.</h3>
+
+								</section>
+								<section>
+									<h3>Phone</h3>
+									<p>+54 9 2616 976702</p>
+								</section>
+								<section>
+									<h3>Email</h3>
+									<p>spadavecchia.adrian@gmail.com</p>
+								</section>
+							<section class="split contact">
+								<section>
+									<h3>Social</h3>
+									<ul class="icons alt">
+										<li><a href="https://www.linkedin.com/in/adrianspadavecchia/?locale=en_US" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/SpadavecchiaAdrian" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</section>
+							</section>
+						</footer>
+
+					<!-- Copyright -->
+						<div id="copyright">
+							<ul><li>&copy; Spadavecchia Adrián</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
