@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>NDVI</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Portfolio</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Portfolio</a></li>
+							<li class="active"><a href="page_ndvi.html">NDVI</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/adrianspadavecchia/?locale=en_US" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/SpadavecchiaAdrian" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>NDVI</h1>
+									<p>Basic work with satellital images with python and google Colab.</p>
+								</header>
+								<div class="image main"><img src="images/vineyard.jpg" alt="" /></div>
+								<div class="row">
+								<p>The normalized difference vegetation index (NDVI) is a simple
+									graphical indicator that can be used to analyze remote sensing measurements,
+									typically, but not necessarily, from a space platform, and assess whether
+									the target being observed contains live green vegetation or not. <a href="https://en.wikipedia.org/wiki/Normalized_difference_vegetation_index">Link to Wikipedia</a><br /><br />
+									Let's start with the basic processing of satellite images with python.
+									</p>
+								</div>
+
+									<h3>Basics</h3>
+									<div class="row">
+										<p><span class="image left"><img src="images/ndvi/intro.png" alt="" /></span>
+											The satellites are equipped with various sensors, of our interest,
+											the multispectral camera. A multispectral image is one that captures
+											image data within specific wavelength ranges across the electromagnetic spectrum.
+											In the image we can see the band 4 (near infrared).</p>
+									</div>
+									<div class="row">
+									<p><span class="image right"><img src="images/ndvi/NDVI clipp.png" alt="" /></span>
+										Satellite images have a special format, they must contain not only the values
+										​​for each pixel but also the coordinates among others.<br />
+										 To process this image, I use Google Colab, loading Drive into
+										  the file system to facilitate the storage of processed images.
+											 Several libraries are necessary for processing, in this notebook
+											 we review the most basic operations to obtain a box of the original
+											 image like the one we see in the image.
+									 </p>
+								 </div>
+								 		<ul class="actions">
+											<li><a href="https://github.com/SpadavecchiaAdrian/NDVI-in-python/blob/master/NDVI_Landsat.ipynb" class="button primary icon solid fa-search">See Colab Notebook code in GitHub</a></li>
+
+										</ul>
+									<h3>Generate a Dataset from Satellital Images.</h3>
+									<p>This section requires a greater understanding, the purpose
+									is to obtain a CSV file with statistical data (features of the image)
+									 for later use in an ML model.</p>
+									<div class="row">
+ 									 <p><span class="image left"><img src="images/ndvi/Polygon vineyard.png" alt="" /></span>
+										 First we need to generate a polygon about the vineyards that we are going to study.
+										  The coordinates can be generated with <a href="https://geojson.io/">jeojson.io</a> as in our case.<br />
+											In the notebook we can see how this polygon with Lat and Long
+											coordinates needs to be projected to the coordinate system that uses the satellite image.
+ 										</p>
+ 								</div>
+								<div class="row">
+								 <p><span class="image right"><img src="images/ndvi/ndvi vineyard.png" alt="" /></span>
+									  We can use the polygon to mask the image, then calculate the ndvi.
+										Later, we can take the pixel information of the ndvi, and build a Data
+										Frame with all the images that we wont to process.
+									</p>
+								</div>
+								<ul class="actions">
+									<li><a href="https://github.com/SpadavecchiaAdrian/NDVI-in-python/blob/master/Mask_NDVI_Landsat.ipynb" class="button primary icon solid fa-search">See Colab Notebook code in GitHub</a></li>
+
+								</ul>
+								<h3>The next step is to obtain the correct production labels. Then build a model. I'm working in it.</h3>
+							</section>
+
+					</div>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<section class="split contact">
+								<section class="alt">
+									<h3>Do you like what i do? Contact me.</h3>
+
+								</section>
+								<section>
+									<h3>Phone</h3>
+									<p>+54 9 2616 976702</p>
+								</section>
+								<section>
+									<h3>Email</h3>
+									<p>spadavecchia.adrian@gmail.com</p>
+								</section>
+							<section class="split contact">
+								<section>
+									<h3>Social</h3>
+									<ul class="icons alt">
+										<li><a href="https://www.linkedin.com/in/adrianspadavecchia/?locale=en_US" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/SpadavecchiaAdrian" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</section>
+							</section>
+						</footer>
+
+					<!-- Copyright -->
+						<div id="copyright">
+							<ul><li>&copy; Spadavecchia Adrián</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
