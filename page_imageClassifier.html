@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Dataset with OpenCV</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Portfolio</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Portfolio</a></li>
+							<li class="active"><a href="page_opencv.html">Image classifier</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/adrianspadavecchia/?locale=en_US" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/SpadavecchiaAdrian" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Image classifier</h1>
+									<p> In this post we will see the different Transfer Learning
+										variants applied to the MobileNet model for the Rock Paper Scissors Lizard Spock project.
+									</p>
+								</header>
+								<div class="image main"><img src="images/neural network2.jpg" alt="" /></div>
+								<div class="row">
+								<p>When I was studying <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/CDA4D7CSTYR8">"Deep Learning, a 5-course specialization by deeplearning.ai on Coursera."</a>
+									  I had the idea of ​​practicing
+									 the knowledge acquired by performing a simple game, rock paper
+									 scissors lizard spock. So I started by getting a DataSet that
+									 meets my needs. Since I didn't find any, I decided to create it
+									 <a href="page_opencv.html">(Link to the post where I explain how to create an image dataset with OpenCV.)</a>.<br />
+
+									 In this article, I will explore the possibilities to select the model for my project..<br /><br />
+									</p>
+								</div>
+
+									<h3>First approach:</h3>
+									<div class="row">
+										<p><span class="image left"><img src="images/ImgClassifier/Googletraintest.png" alt="" /></span>
+											The first step was to look for an example to have a starting point.
+											 What I found was a Colab notebook. <a href="https://colab.research.google.com/github/lmoroney/io19/blob/master/Zero%20to%20Hero/Rock-Paper-Scissors.ipynb#scrollTo=ZABJp7T3VLCU">(Link to the Rock Paper Scissors Colab notebook)</a>
+											 The result on the proposed DataSet is excellent (image on the left).
+										</p>
+									</div>
+									<div class="row">
+										<p>
+											 <span class="image right"><img src="images/ImgClassifier/handGoogle.png" alt="" /></span>
+											 The big problem is that the DataSet used is not similar to what we need.
+											 The DataSet consists of hands modeled in 3D with good quality,
+											 different skin colors, size, but all on a white background,
+											  only gestures from the angle of the back of the hand,
+												and I still needed the Lizard and Spock classes.
+										</p>
+									</div>
+									<div class="row">
+										<p><span class="image left"><img src="images/ImgClassifier/CNNmyDataSet.png" alt="" /></span>
+											So I replaced the DataSet with mine, change the last layer
+											of the model to get 5 classes instead of 3 and as you can
+											see the result was not as expected, but it was the first
+											iteration (plot on the left). </br>
+											Cute Overfitting, this opens up new possibilities, add regulation
+											to the model, find another simpler model or add more data.
+										</p>
+									</div>
+									<h3>Second approach:</h3>
+									<div class="row">
+									<p>I continued searching and researching.
+										I love Tensorflow tutorials, I found this tutorial,
+										<a href="https://www.tensorflow.org/tutorials/images/transfer_learning#top_of_page">"Transfer Learning Using Pretrained ConvNets"</a>.
+										And just as many other tutorials use MobileNet, so I decided to give it a try.
+										MobileNet weighs only 14MB and has 3,538,984 parameters, and an
+										impressive top-5 accuracy in ImageNet of 0.92 an extraordinary
+										result versus Xception with a weight of 88MB, 22,910,480 and
+										a top-5 accuracy in ImageNet of 0.94. I had to
+										give MobileNet a chance and play for a while.</br>
+										<a href="https://keras.io/applications/">Here you can see more models in keras</a></br>
+									</p>
+									<p> <span class="image right"><img src="images/ImgClassifier/featureMobileNetFirstTest.png" alt="" /></span>
+										I took this tutorial as a starting point for this second approach,
+										<a href="https://www.tensorflow.org/tutorials/load_data/images">"Load images with tf.data"</a>.
+										As in the tutorial I made Feature Extraction with MobileNet,
+										I made the necessary modifications to be able to feed the
+										model with my DataSet, even select the smallest version of the model,
+										with the smallest input image size. Under these conditions the model
+										weighs only 4MB. It has so much power that my DataSet did
+										Overfitting from the first epoch.</br>
+										Now if it was very clear, I needed more images.
+									</p>
+								 </div>
+							 		<ul class="actions">
+										<li><a href="http://htmlpreview.github.io/?https://github.com/SpadavecchiaAdrian/RPSLS/blob/master/Model%20CNN.html" class="button primary icon solid fa-search">See the second approach code in GitHub</a></li>
+										<li><a href="https://github.com/SpadavecchiaAdrian/RPSLS/blob/master/Model%20CNN.ipynb" class="button primary fit">.ipynb file</a></li>
+									</ul>
+									<h3>Third approach. MORE DATA.</h3>
+									<div class="row">
+										<p>
+											After expanding my DataSet, my old DataSet consisted of 5,000 images,
+											 my new DataSet continent 25,000. I decided to do three tests,
+											train my model in the last two layers with feature extraction,
+											train my model with fine-tuning, train the entire model.
+										</p>
+									</div>
+									<div class="row">
+										<p>
+											<span class="image left"><img src="images/ImgClassifier/RPSLSFeatures.png" alt="" /></span>
+											For this third approach, I made some changes to the DataSet,
+											first, I resized all the images to 96x96 to decrease the weight
+											of the DataSet in memory and accelerate the loading process, second,
+											<a href="https://pypi.org/project/split-folders/">I used this package to split the DataSet into Train, Test and Validate.</a>
+											Third, change the data input method, for this I used flow_from_directory()
+											in conjunction with ImageDataGenerator() to be able to perform Data Augmentation.
+											The Sketch with the mentioned changes performs feature exraction,
+											the last two layers of the model are customized for our 5 classes.
+											The result (image on the left) is not the best, but there are still two more tests.
+										</p>
+									</div>
+									<ul class="actions">
+										<li><a href="https://github.com/SpadavecchiaAdrian/RPSLS/blob/master/RPSLSFeatures.py" class="button primary icon solid fa-search">See the Feature extraction test code in GitHub</a></li>
+									</ul>
+									<div class="row">
+										<p>
+											<span class="image right"><img src="images/ImgClassifier/RPSLSFine.png" alt="" /></span>
+											In the image on the right we see the result of Fine Tuning,
+											for this result, we leave the first 100 layers with their
+											pre-trained values ​​with ImageNet and re-train the following l
+											ayers, to take into account, the model has 155 layers.
+										</p>
+									</div>
+									<ul class="actions">
+										<li><a href="https://github.com/SpadavecchiaAdrian/RPSLS/blob/master/RPSLSFine.py" class="button primary icon solid fa-search">See the Fine Tuning test code in GitHub</a></li>
+									</ul>
+									<div class="row">
+										<p>
+											<span class="image left"><img src="images/ImgClassifier/All_layers.png" alt="" /></span>
+											Finally, train all layers. Here I must make a clarification,
+											 this result was obtained by re-training the entire model,
+											 but based on the ImageNet values. I also did the test based
+											  on random values, but I only achieved 0.43 in train accuracy.
+												 So one of the things to try is to take the first first approach,
+												  and using my new DataSet in conjunction with the model already
+													 trained with the original DataSet (rock paper scissors)
+													 perform a Feature extraction, Fine Tuning and All Layers train.
+										</p>
+									</div>
+									<ul class="actions">
+										<li><a href="https://github.com/SpadavecchiaAdrian/RPSLS/blob/master/RPSLSAllLayers.py" class="button primary icon solid fa-search">See the All Layers test code in GitHub</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="page_opencv.html" class="button primary icon solid fa-angle-double-left">Go to the first part of this proyect</a></li>
+										<li><a href="/TeachableRPSLS/index.html" class="button primary icon solid fa-angle-double-right">Go to the third part of this proyect</a></li>
+									</ul>
+							</section>
+
+					</div>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<section class="split contact">
+								<section class="alt">
+									<h3>Do you like what i do? Contact me.</h3>
+
+								</section>
+								<section>
+									<h3>Phone</h3>
+									<p>+54 9 2616 976702</p>
+								</section>
+								<section>
+									<h3>Email</h3>
+									<p>spadavecchia.adrian@gmail.com</p>
+								</section>
+							<section class="split contact">
+								<section>
+									<h3>Social</h3>
+									<ul class="icons alt">
+										<li><a href="https://www.linkedin.com/in/adrianspadavecchia/?locale=en_US" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/SpadavecchiaAdrian" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</section>
+							</section>
+						</footer>
+
+					<!-- Copyright -->
+						<div id="copyright">
+							<ul><li>&copy; Spadavecchia Adrián</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

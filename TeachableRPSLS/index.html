@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>RPSLS</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+
+
+    <script src="dist/build.js"></script>
+</head class="is-preload">
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="../index.html" class="logo">Portfolio</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="../index.html">Portfolio</a></li>
+							<li class="active"><a href="/TeachableRPSLS/">RPSLS</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/adrianspadavecchia/?locale=en_US" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/SpadavecchiaAdrian" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Rock Paper Scissors <br />
+									Lizard Spock</h1>
+                  <h3>Please enable your camera to play on the browser!!.</h3>
+									
+								</header>
+								<div class="image main"><img src="/images/RPSLS/RPSLS.png" alt="" /></div>
+								<div class="row">
+								<p>On this page, we are going to play rock paper scissors lizard
+                  Spock in the browser! Then I will explain the basics of how it
+                  works from the point of view of Machine Learning.<br /><br />
+
+								</p>
+								</div>
+                <h3>Intro:</h3>
+                <div style="width:25%;height:25%;padding-bottom:25%;position:relative;"><iframe src="https://giphy.com/embed/hKS1xHR2LmKas" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed"></iframe></div>
+                <div class="row">
+                  <p>
+                    I had the idea of ​​implementing this game while studying CNN in Coursera.
+                    I started with the basics, I needed to create a Data Set, so
+                    I started with OpenCV, a green background and a cell phone <a href="../page_opencv.html">(More in this post)</a>.<br />
+                    Then, I built a model, trained it and created a pipe
+                    flow with OpenCV <a href="../page_imageClassifier.html">(More in this other post)</a>.
+                    But I wanted everyone to play without having to install OpenCv or retrain
+                    the model, so I got to work with Tensorflow js. After exploring
+                    the documentation and looking for examples, I found this tutorial
+                    <a href="https://www.tensorflow.org/js/tutorials/transfer/image_classification">"Transfer learning image classifier"</a>.
+                    for which I found this example <a href="https://teachablemachine.withgoogle.com/">"Teachable Machine"</a>.<br />
+                    Not only is the code open <a href="https://github.com/googlecreativelab/teachable-machine">(repo)</a>,
+                    but they release a boilerplate version <a href="https://github.com/googlecreativelab/teachable-machine-boilerplate">(repo boilerplate)</a>.
+                    Then when I had some progress, I also found
+                     <a href="https://github.com/reiinakano/tfjs-rock-paper-scissors">this repository</a>
+                    from which I took some pieces of code and ideas.<br />
+                  </p>
+                </div>
+                <h3>Let's play on the browser!</h3>
+                <h5>Hold down the buttons to learn your gestures. Don't forget to enable the camera</h5>
+                <h5>It is recommended to take at least 30 examples for each gesture.</h5>
+				        <div class="row">
+				            <div class="col-4 col-12-small">
+				                   <video id="cam-video" autoplay=""></video>
+				            </div>
+				            <div class="col-4 col-12-small">
+				                <div>
+				                    <button id="train-rock-button" class="button primary small fit">Train Rock</button>
+				                </div>
+				                <div>
+				                    <button id="train-paper-button" class="button primary small fit">Train Paper</button>
+				                </div>
+				                <div>
+				                    <button id="train-scissors-button" class="button primary small fit">Train Scissors</button>
+				                </div>
+				                <div>
+				                    <button id="train-lizard-button" class="button primary small fit">Train Lizard</button>
+				                </div>
+				                <div>
+				                    <button id="train-spock-button" class="button primary small fit">Train Spock</button>
+				                </div>
+				            </div>
+                    <div class="col-4 col-12-small">
+                        <div>
+                          <span id="train-rock-span">No examples added</span>
+                        </div>
+                        <div>
+                          <span id="train-paper-span"> No examples added</span>
+                        </div>
+                        <div>
+                          <span id="train-scissors-span"> No examples added</span>
+                        </div>
+                        <div>
+                          <span id="train-lizard-span"> No examples added</span>
+                        </div>
+                        <div>
+                          <span id="train-spock-span"> No examples added</span>
+                        </div>
+                    </div>
+				        </div>
+                <br />
+
+				        <div class="row">
+				            <button class="button primary fit" id="start-game-button" disabled>Start a game</button>
+				        </div>
+				        <div class="row" >
+				            <span id="game-status">Train your gestures above then start a game!</span>
+				        </div>
+				        <div class="row">
+				            <div class="col-6 col-12-small">
+                        <h5 hidden>You:</h5>
+				                <img id="rock-you" src="images/rock.png" hidden>
+				                <img id="paper-you" src="images/paper.png"  hidden>
+				                <img id="scissors-you" src="images/scissors.png"  hidden>
+                        <img id="lizard-you" src="images/lizard.png"  hidden>
+                        <img id="spock-you" src="images/spock.png"  hidden>
+				            </div>
+				            <div class="col-6 col-12-small">
+                        <h5 hidden>Computer:</h5>
+				                <img id="rock-cpu" src="images/rock.png" hidden>
+				                <img id="paper-cpu" src="images/paper.png"  hidden>
+				                <img id="scissors-cpu" src="images/scissors.png"  hidden>
+                        <img id="lizard-cpu" src="images/lizard.png"  hidden>
+                        <img id="spock-cpu" src="images/spock.png" hidden>
+				            </div>
+				        </div>
+                <h3>How it works? (from the point of view of Machine Learning).</h3>
+                <div class="row">
+                  <p>
+                    The main script is contained in main.js, which is compiled by browserify to the output file dist/build.js.
+                    The heart of the application is a CNN MobileNet,
+                    which is loaded with the values ​​already trained with the ImageNet
+                    data set. Use MobileNet as a feature extractor, these features
+                    will be used to power a KNN Classifier, this will be the one that indicates the output. </p>
+                    <pre><code>
+i = 0;
+async bindPage() {
+  this.knn = knnClassifier.create();
+  this.mobilenet = await mobilenetModule.load();
+
+  this.start();
+}
+                    </code></pre>
+                    <p>
+                      The previous function creates a KNN classifier and loads the MobileNet model.
+                      The next part to understand how it works is the next piece of code (below).
+                      tf.fromPixels generates an image. later mobilenet.infer(image, 'conv_preds')
+                      makes a predition, but we don't use the entire CNN, with the argument
+                      'conv_preds' we tell the mobilenet package that we want to use it in a
+                      'feature extractor' mode. <br />
+                      The training variable contains -1 if no button
+                      is being pressed, or if a button is pressed, the number, for example in our case,
+                      the 'Train Spock' button is equivalent to class 4, while 'Train Scissors' is equivalent to 2.<br />
+                      So if there is any button pressed "if (this.training! = -1)"
+                      we add the predefined features along with the corresponding
+                      class to the button in our KNN Classiefier. <br />
+                      In conclusion, we are NOT training a neural network in the browser,
+                      we are training a simple KNN classifier.
+                    </p>
+                    <pre><code>
+async animate() {
+if (this.videoPlaying) {
+// Get image data from video element
+const image = tf.fromPixels(this.video);
+
+let logits;
+// 'conv_preds' is the logits activation of MobileNet.
+const infer = () => this.mobilenet.infer(image, 'conv_preds');
+
+// Train class if one of the buttons is held down
+if (this.training != -1) {
+  logits = infer();
+
+  // Add current image to classifier
+  this.knn.addExample(logits, this.training)
+}
+...
+                    </code></pre>
+                </div>
+                <p>
+                  The last important piece, once added at least one class is to
+                  generate a prediction. For this we use knn.predictClass,
+                  which we assign to res. res contains as attributes the classes and
+                  the confidences of each class. </br>
+                  With res.classIndex, we are getting the predicted hand gesture,
+                  which we will use to solve our game.</br>
+                </p>
+                <pre><code>
+logits = infer();
+const res = await this.knn.predictClass(logits, TOPK);
+this.currentMove = res.classIndex;
+                </code></pre>
+                <p>
+                  The rest of the code has the function of printing the confidence
+                  of each class, set the text of the class with greater confidence
+                  in bold, animate the selection of the computer and the user, etc.</br>
+                  Finally, as the game does not have a scoring system nor is it intended to be,
+                   the result is determined with a matrix, where the rows are the
+                   possible classes that the computer randomly chooses and the
+                   columns the classes that the user choose by gesturing in front
+                    of the camera, which as we have explained will be predicted
+                    with our "MobileNet + KNNClassifier" model.</br>
+                    With the random selection of the computer and the selection of the user,
+                    it is enough to search where said row and column intersect.
+                </p>
+                <h3>Conclusion:</h3>
+                <p>
+                  MobileNet is a very small model but with a lot of potential,
+                  sometimes it is not necessary to go deeper and add layers and
+                  neurons or choose complex and heavy models. It is much more
+                  efficient to use a combination of models, as in our case MobileNet + KNN.
+                </p>
+                <ul class="actions">
+                  <li><a href="../page_opencv.html" class="button primary icon solid fa-angle-double-left">Go to the first part of this proyect</a></li>
+                  <li><a href="../page_imageClassifier.html" class="button primary icon solid fa-angle-double-left">Go to the second part of this proyect</a></li>
+                </ul>
+							</section>
+
+					</div>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<section class="split contact">
+								<section class="alt">
+									<h3>Do you like what i do? Contact me.</h3>
+
+								</section>
+								<section>
+									<h3>Phone</h3>
+									<p>+54 9 2616 976702</p>
+								</section>
+								<section>
+									<h3>Email</h3>
+									<p>spadavecchia.adrian@gmail.com</p>
+								</section>
+							<section class="split contact">
+								<section>
+									<h3>Social</h3>
+									<ul class="icons alt">
+										<li><a href="https://www.linkedin.com/in/adrianspadavecchia/?locale=en_US" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/SpadavecchiaAdrian" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</section>
+							</section>
+						</footer>
+
+					<!-- Copyright -->
+						<div id="copyright">
+							<ul><li>&copy; Spadavecchia Adrián</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
